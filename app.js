@@ -6,7 +6,7 @@ const playerLives = 6;
 //link text
 playerLivesCount.textContent = playerLives;
 
-//generate the data 
+//generate the object 
 const getData = () => [
     { imgSrc: "./images/beach.jpeg", id: 1, name: "beach" },
     { imgSrc: "./images/building.jpeg", id: 2, name: "building" },
@@ -30,8 +30,34 @@ const getData = () => [
 const randomize = () =>{
     const cardData = getData();
     cardData.sort(() => Math.random() - 0.5);
-    console.log(cardData);
-}
+    return cardData;
+    
+};
 
-randomize();
+//card generator function
+const cardGenerator = () => {
+    const cardData = randomize();
+    //generate the html
+    cardData.forEach((item) => {
+        const card = document.createElement("div");
+        const face = document.createElement("img");
+        const back = document.createElement("div");
+        card.classList = 'card';
+        face.classList = 'face';
+        back.classList = 'back';
+        //attach the info to the cards
+        face.src = item.imgSrc;
+        //attach the cards to the section
+        section.appendChild(card);
+        card.appendChild(face);
+        card.appendChild(back);
+    });
+
+   
+     
+
+
+};
+
+cardGenerator();
 
