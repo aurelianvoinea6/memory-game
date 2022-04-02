@@ -1,7 +1,7 @@
 //Grab a couple of things
 const section = document.querySelector('section');
 const playerLivesCount = document.querySelector("span");
-const playerLives = 7;
+const playerLives = 6;
 
 //link text
 playerLivesCount.textContent = playerLives;
@@ -26,5 +26,12 @@ const getData = () => [
     { imgSrc: "./images/paper.jpeg", id: 16, name: "paper" },
 ];
 
-const data = getData();
+// randomize
+const randomize = () =>{
+    const cardData = getData();
+    cardData.sort(() => Math.random() - 0.5);
+    console.log(cardData);
+}
+
+randomize();
 
