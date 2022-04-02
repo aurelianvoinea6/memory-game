@@ -100,6 +100,8 @@ const restart = () => {
     cardData.forEach((item,index) => {
         cards[index].classList.remove("toggleCard");
     });
+    playerLives = 6;
+    playerLivesCount.textContent = playerLives;
 };
 
 cardGenerator();
